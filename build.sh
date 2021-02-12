@@ -48,6 +48,17 @@ clang \
 	-Wl,--export=hb_blob_get_length \
 	-Wl,--export=hb_font_set_scale \
 	-Wl,--export=hb_face_get_upem \
+	-Wl,--export=hb_face_collect_unicodes \
+	-Wl,--export=hb_set_create \
+	-Wl,--export=hb_set_destroy \
+	-Wl,--export=hb_set_get_min \
+	-Wl,--export=hb_set_get_max \
+	-Wl,--export=hb_set_get_population \
+	-Wl,--export=hb_set_has \
+	-Wl,--export=hb_set_next \
+	-Wl,--export=hb_set_previous \
+	-Wl,--export=hb_set_next_range \
+	-Wl,--export=hb_set_previous_range \
 	-Wl,--export=hbjs_glyph_svg \
 	-Wl,--export=hbjs_shape_with_trace \
 	-Wl,--export=free \

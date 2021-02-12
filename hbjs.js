@@ -67,6 +67,25 @@ function hbjs(instance) {
         return table_string;
       },
       /**
+       * Returns the supported unicode ranges in this face
+       */
+      collectUnicodes: function () {
+        var setPtr = exports.hb_set_create();
+        exports.hb_face_collect_unicodes(ptr, setPtr);
+        var firstPtr = exports.malloc(4);
+        var lastPtr = exports.malloc(4);
+        var ranges = [];
+        while (exports.hb_set_next_range(setPtr, firstPtr, lastPtr)) {
+          var first = heapu32[firstPtr / 4];
+          var last = heapu32[lastPtr / 4];
+          ranges.push([first, last]);
+        }
+        exports.free(firstPtr);
+        exports.free(lastPtr);
+        exports.hb_set_destroy(setPtr);
+        return ranges;
+      },
+      /**
        * Free the object.
        */
       destroy: function () {
