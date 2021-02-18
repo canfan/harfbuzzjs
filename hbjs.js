@@ -1,4 +1,4 @@
-function hbjs(instance) {
+export default function hbjs(instance) {
   'use strict';
 
   var exports = instance.exports;
@@ -54,6 +54,7 @@ function hbjs(instance) {
     var ptr = exports.hb_face_create(blob.ptr, index);
     return {
       ptr: ptr,
+      unitsPerEm: exports.hb_face_get_upem(ptr),
       /**
        * Return the binary contents of an OpenType table.
        * @param {string} table Table name
@@ -329,6 +330,3 @@ function hbjs(instance) {
     shapeWithTrace: shapeWithTrace
   };
 };
-
-// Should be replaced with something more reliable
-try { module.exports = hbjs; } catch(e) {}
