@@ -5,7 +5,7 @@ set -e
 [ -x "$(command -v clang)" ] || (echo "Please install clang from your package manager" && exit 1)
 [ -x "$(command -v wasm-ld)" ] || (echo "Please install lld (llvm's linker) from your package manager" && exit 1)
 
-[ -d harfbuzz/src ] || git clone --depth=1 https://github.com/harfbuzz/harfbuzz
+[ -d harfbuzz/src ] || git clone --depth=1 https://github.com/canfan/harfbuzz
 #(cd harfbuzz; git pull --ff-only)
 
 clang \
